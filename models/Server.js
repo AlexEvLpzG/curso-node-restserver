@@ -4,7 +4,16 @@ class Server {
         this.app = express();
         this.port = process.env.PORT;
 
-        this.routes;
+        // * Middlewares
+        this.middlewares();
+
+        //* Rutas de la applicación
+        this.routes();
+    }
+
+    middlewares() {
+        // * Directorio Público
+        this.app.use( express.static( 'public' ) );
     }
 
     routes() {
